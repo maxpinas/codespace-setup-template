@@ -97,20 +97,20 @@ ls -la ~/.claude/
 # - MCP_*.md files
 ```
 
-### Step 5: Set Up Material Design Icons
+### Step 5: Install Flaticon Icons
 
 ```bash
-# Clone Material Icons repository (optional - for offline use)
-cd ~
-git clone https://github.com/google/material-design-icons.git
-
-# Create symlink for easy access
-mkdir -p ~/.icons
-ln -s ~/material-design-icons ~/.icons/material
+# Install Flaticon uicons globally
+npm install -g @flaticon/flaticon-uicons
 ```
 
-**Design Rules (No installation needed - just reference):**
-- Icon width: 200px
+**Verify:**
+```bash
+npm list -g @flaticon/flaticon-uicons
+# Should show installed version
+```
+
+**Design Rules:**
 - Never use emoticons in designs
 - Never use purple
 - Always align left
@@ -760,11 +760,11 @@ else
     ERRORS=$((ERRORS + 1))
 fi
 
-# Check 7: Material Icons (optional)
-if [ -d "$HOME/material-design-icons" ]; then
-    echo "✅ Material Design Icons installed"
+# Check 7: Flaticon Icons
+if npm list -g @flaticon/flaticon-uicons &> /dev/null; then
+    echo "✅ Flaticon icons installed"
 else
-    echo "ℹ️  Material Design Icons not installed (optional)"
+    echo "ℹ️  Flaticon icons not installed (will be installed by setup.sh)"
 fi
 
 echo ""
@@ -804,7 +804,7 @@ After completing all steps, verify:
 - [ ] Keep-alive service starts automatically
 - [ ] Servers auto-start when Codespace opens
 - [ ] URLs are accessible from browser
-- [ ] Material Icons available (if needed)
+- [ ] Flaticon icons installed
 
 ---
 
@@ -887,9 +887,8 @@ cat .devcontainer/devcontainer.json | grep forwardPorts
 
 When working with UI components:
 
-- **Icons**: Material Design Icons
-  - Width: 200px
-  - Format: SVG preferred
+- **Icons**: Flaticon uicons
+  - Installed via: `npm install -g @flaticon/flaticon-uicons`
   - Never use emoticons
 
 - **Colors**:
@@ -961,7 +960,7 @@ Project Structure:
 
 Global Configuration:
 ~/.claude/                       # SuperClaude config
-~/material-design-icons/         # Material icons (optional)
+@flaticon/flaticon-uicons        # Flaticon icons (npm global)
 ```
 
 ---
@@ -971,7 +970,7 @@ Global Configuration:
 - **Claude Code Documentation**: https://docs.claude.com/claude-code
 - **Claude Yolo Mode**: https://github.com/eastlondoner/claude-yolo
 - **SuperClaude Framework**: https://github.com/SuperClaude-Org/SuperClaude_Framework
-- **Material Design Icons**: https://github.com/google/material-design-icons
+- **Flaticon Icons**: https://www.flaticon.com/uicons
 - **GitHub Codespaces Docs**: https://docs.github.com/codespaces
 
 ---
