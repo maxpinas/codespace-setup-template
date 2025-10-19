@@ -199,15 +199,15 @@ else
 fi
 
 ##################################
-# CHECK 7: Material Icons (Optional)
+# CHECK 7: Flaticon Icons
 ##################################
-echo "Checking Material Design Icons..."
-if [ -d "$HOME/material-design-icons" ]; then
-    ICON_COUNT=$(find ~/material-design-icons -name "*.svg" 2>/dev/null | wc -l)
-    print_success "Material Design Icons installed ($ICON_COUNT icons)"
+echo "Checking Flaticon icons..."
+if npm list -g @flaticon/flaticon-uicons >/dev/null 2>&1; then
+    print_success "Flaticon icons installed"
 else
-    print_info "Material Design Icons not installed (optional)"
-    echo "   Install with: cd ~ && git clone https://github.com/google/material-design-icons.git"
+    print_warning "Flaticon icons not found"
+    echo "   Install with: npm install -g @flaticon/flaticon-uicons"
+    WARNINGS=$((WARNINGS + 1))
 fi
 
 ##################################

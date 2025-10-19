@@ -117,20 +117,13 @@ echo ""
 sleep 1
 
 ##################################
-# STEP 5: Install Material Design Icons (Optional)
+# STEP 5: Install Flaticon Icons
 ##################################
-print_step "Step 5/8: Installing Material Design Icons"
+print_step "Step 5/8: Installing Flaticon Icons"
 
-if [ -d "$HOME/material-design-icons" ]; then
-    print_success "Material Design Icons already installed"
-else
-    print_info "Installing Material Design Icons (this may take a minute)..."
-    cd ~
-    git clone --depth 1 https://github.com/google/material-design-icons.git
-    mkdir -p ~/.icons
-    ln -sf ~/material-design-icons ~/.icons/material
-    print_success "Material Design Icons installed"
-fi
+echo "Installing Flaticon uicons..."
+npm install -g @flaticon/flaticon-uicons
+print_success "Flaticon icons installed"
 
 echo ""
 sleep 1
